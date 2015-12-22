@@ -1,9 +1,5 @@
 
-df <- read.csv('ChicagoHomicides.csv')
-df <- subset(df,select=c('Date','Arrest'))
-df <- df[df$Arrest==TRUE,]
-df$Arrest <- as.numeric(df$Arrest)
-
+##Function to fill in holes in time series data
 
 dateFill <- function(data, aggLevel = c('year','month','day')){
   cnames <- colnames(data)
@@ -35,5 +31,10 @@ dateFill <- function(data, aggLevel = c('year','month','day')){
   return(dataFull)
 }
 
-newdata <- dateFill(df,aggLevel='year')
+###Testing
+#df <- read.csv('ChicagoHomicides.csv')
+#df <- subset(df,select=c('Date','Arrest'))
+#df <- df[df$Arrest==TRUE,]
+#df$Arrest <- as.numeric(df$Arrest)
 
+#newdata <- dateFill(df,aggLevel='year')
